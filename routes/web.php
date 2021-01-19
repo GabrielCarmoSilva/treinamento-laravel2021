@@ -19,3 +19,9 @@ Route::get('/', function () {
     
 })->name('dashboard');
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/pessoas', 'PersonController@index')->name('people.index');
+//Route::post('/pessoas/criar', 'PersonController@store')->name('people.create');
+
+Route::resource('/people', 'PersonController')
+    ->names('people');

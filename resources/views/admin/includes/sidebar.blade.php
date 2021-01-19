@@ -36,6 +36,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('people.index') }}" class="nav-link {{ Route::is('people.index') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-user-friends"></i>
+            <p>
+              Pessoas
+            </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
