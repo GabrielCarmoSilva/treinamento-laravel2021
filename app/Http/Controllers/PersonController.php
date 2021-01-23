@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Person;
+use App\Course;
 
 class PersonController extends Controller
 {
@@ -26,7 +27,8 @@ class PersonController extends Controller
     public function create()
     {
         $person = new Person();
-        return view('admin.people.create', compact('person'));
+        $courses = Course::all();
+        return view('admin.people.create', compact('person', 'courses'));
     }
 
     /**
@@ -37,7 +39,9 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        Person::create($request->all());
+        $courses = $request->courses;
+        $person = Person::create($request->except('courses'));
+        $person->courses()->attach($courses);
         return redirect()->route('people.index')->with('success', true);
     }
 
@@ -60,7 +64,8 @@ class PersonController extends Controller
      */
     public function edit(Person $person)
     {
-        return view('admin.people.edit', compact('person'));
+        $courses = Course::all();
+        return view('admin.people.edit', compact('person', 'courses'));
     }
 
     /**
@@ -72,7 +77,9 @@ class PersonController extends Controller
      */
     public function update(Request $request, Person $person)
     {
-        $person->update($request->all());
+        $courses = $request->courses;
+        $person->update($request->except('courses'));
+        $person->courses()->sync($courses);
         return redirect()->route('people.index')->with('success', true);
     }
 
@@ -84,6 +91,7 @@ class PersonController extends Controller
      */
     public function destroy(Person $person)
     {
+        $person->courses()->detach();
         $person->delete();
         return redirect()->route('people.index')->with('success', true);
     }

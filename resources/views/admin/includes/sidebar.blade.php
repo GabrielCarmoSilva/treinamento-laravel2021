@@ -44,6 +44,22 @@
             </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('courses.index') }}" class="nav-link {{ Route::is('courses.index') ? 'active' : '' }}">
+            <i class="nav-icon fab fa-discourse"></i>
+            <p>
+              Cursos
+            </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('categories.index') }}" class="nav-link {{ Route::is('categories.index') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-font"></i>
+            <p>
+              Categorias
+            </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

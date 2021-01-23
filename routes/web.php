@@ -25,3 +25,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/people', 'PersonController')
     ->names('people');
+
+Route::resource('/categories', 'CategoryController')
+    ->names('categories');
+
+Route::resource('/courses', 'CourseController')
+    ->names('courses');
