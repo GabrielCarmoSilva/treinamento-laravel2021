@@ -16,12 +16,15 @@
         @if(!Route::is('people.show'))
             <select multiple name="courses[]" required id="courses" value="{{ json_encode(old('courses', $person->courses->pluck('id'))) }}" class="form-control">
                 @foreach($courses as $course)
-                    <option {{ collect(old('courses', $person->courses->pluck('id')))->contains($course->id) ? 'selected' : '' }} 
+                    <option {{ collect(old('courses', $person->courses->pluck('id')))->contains($course->id) ? 'selected' : '' }}
                     value="{{ $course->id }}">
                         {{ $course->name }}
                     </option>
                 @endforeach
             </select>
+            @error('courses')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
         @else
             @foreach($person->courses as $course)
                 <p>{{ $course->name }}</p>

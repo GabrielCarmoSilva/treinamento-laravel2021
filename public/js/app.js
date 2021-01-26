@@ -106409,6 +106409,9 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+$('#cpf').mask('000.000.000-00', {
+  reverse: true
+});
 
 /***/ }),
 
@@ -106487,8 +106490,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/josue/Área de Trabalho/code/teste/treinamento/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/josue/Área de Trabalho/code/teste/treinamento/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\pedro\Documents\Projetos\treinamento-laravel2021\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\pedro\Documents\Projetos\treinamento-laravel2021\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

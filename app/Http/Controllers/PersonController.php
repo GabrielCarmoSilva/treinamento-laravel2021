@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Person;
 use App\Course;
+use App\Http\Requests\PersonRequest;
 
 class PersonController extends Controller
 {
@@ -37,7 +38,7 @@ class PersonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PersonRequest $request)
     {
         $courses = $request->courses;
         $person = Person::create($request->except('courses'));
@@ -75,7 +76,7 @@ class PersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Person $person)
+    public function update(PersonRequest $request, Person $person)
     {
         $courses = $request->courses;
         $person->update($request->except('courses'));

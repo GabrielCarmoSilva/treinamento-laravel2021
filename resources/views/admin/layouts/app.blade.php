@@ -40,7 +40,7 @@
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
-    
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content">
         <div class="container-fluid">
@@ -48,6 +48,7 @@
         </div>
     </div>
 </div>
+    @include('admin.includes.success')
   @include('admin.includes.footer')
 
   <!-- Control Sidebar -->
@@ -57,11 +58,11 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-<script src="{{ asset('js/app.js') }}"></script>  
+<script src="{{ asset('js/app.js') }}"></script>
 <script>
   var errors = {!! $errors !!}
 </script>
 <script src="{{ asset('js/components/error.js')  }}"></script>
-@stack('scripts')  
+@stack('scripts')
 </body>
 </html>

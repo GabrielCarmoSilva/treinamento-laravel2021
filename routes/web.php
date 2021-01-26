@@ -15,19 +15,24 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/', function () {
-    return view('admin.layouts.app');
-    
+    return view('welcome');
+
 })->name('dashboard');
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::get('/pessoas', 'PersonController@index')->name('people.index');
 //Route::post('/pessoas/criar', 'PersonController@store')->name('people.create');
 
-Route::resource('/people', 'PersonController')
-    ->names('people');
+Route::middleware('auth')->group(function(){
+    Route::resource('/users', 'UserController')
+        ->names('users');
 
-Route::resource('/categories', 'CategoryController')
-    ->names('categories');
+    Route::resource('/people', 'PersonController')
+        ->names('people');
 
-Route::resource('/courses', 'CourseController')
-    ->names('courses');
+    Route::resource('/categories', 'CategoryController')
+        ->names('categories');
+
+    Route::resource('/courses', 'CourseController')
+        ->names('courses');
+});

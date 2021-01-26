@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Course;
 use App\Category;
+use App\Http\Requests\CourseRequest;
 
 class CourseController extends Controller
 {
@@ -32,7 +33,7 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
         $course = Course::create($request->all());
         return redirect()->route('courses.index')->with('success', true);
@@ -68,7 +69,7 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(CourseRequest $request, Course $course)
     {
         $course->update($request->all());
         return redirect()->route('courses.index')->with('success', true);

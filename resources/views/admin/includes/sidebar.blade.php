@@ -13,7 +13,7 @@
           <img src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Usuário</a>
+          <a href="" class="d-block">{{ Auth::user()->name }}</a>
         </div>
         <div class="info align-self-center">
           <form id="logout-form" method="post" action="{{ route('logout') }}">
@@ -34,6 +34,14 @@
               <p>
                 Dashboard
               </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('users.index') }}" class="nav-link {{ Route::is('users.index') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              Usuários
+            </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
